@@ -1,0 +1,153 @@
+	/*定义iconfont样式*/
+	#head .user font.iconfont{
+    font-family:"iconfont" !important;
+    -moz-osx-font-smoothing: grayscale;
+    font-size:20px;
+    color: #ed145b;
+    margin-right: 5px;
+	}
+	*{	
+		margin: 0px;
+		padding: 0px;
+	}
+	/*头部样式*/
+	.picAdv{
+		width: 100%;
+		height:100px;
+		display: block;
+		background-image: url("../images/advbg.png");
+		/*图片未铺满的区域，直接用小图片重复的方法！*/
+		text-align: center;
+		/*控制页面中的文字和图片（行间元素）居中，不用margin。调div用margin*/
+	}
+	#adv {
+		height: 100px;
+		position: relative;
+	}
+	#adv .close{
+		position: absolute;
+		right: 0;
+		top: 0;
+		cursor:pointer;
+	}
+
+	/*head标题样式*/
+	#head{
+		width: 1000px;
+		height: 100px;
+		margin: 0 auto;
+		margin-top: 30px;
+	}
+	#head .logo{
+		width: 220px;
+		height: 70px;
+		float: left;
+	}
+	#head .search{
+		width: 360px;
+		height: 70px;
+		float: left;
+		position: relative;
+	}
+	#head .search input.sea{
+		width: 308px;
+		height: 38px; /*高度减小2px，由40px变成38px，因为border占据2px*/
+		border: 1px solid #ddd;
+		outline: none;
+		/*取消默认的点击边框效果*/
+		position: absolute;
+		font-size: 12px;
+		/*padding-left: 10px;*/
+		color: rgb(102,102,102);
+	}
+	#head .search input.but{
+		width: 42px;
+		height: 40px;
+		background-image: url("../images/ser_but.png");
+		border:0;
+		position: absolute;
+		left: 312px;
+	}
+	#head .user{
+		width: 412px;
+		height: 40px;
+		float: right;
+		text-align: right;
+		/*注意！text-align写在这里才有效*/
+    }
+	#head .user a{
+		 text-decoration: none;
+		 font-size: 15px;
+		 font-family: "微软雅黑";
+		 color: #666;
+		 text-align: right;
+		 margin-right: 15px;
+		 line-height: 40px;
+		 /*在这里使用line-height可以么？*/
+
+	}
+	#head .user a:hover{
+		color: #ed145b;
+	}
+	#head .user span{
+		font-size: 15px;
+		color: #666;
+		font-family: "微软雅黑"；
+	}
+	#head .user span a{
+		 color:#ed145b;
+		 margin:0 10px;
+		  /*为了刷新上面设置margin-right:15px; 使用户中心和退出显示正常*/
+	}	
+/*网站导航样式*/
+	.nav{
+		width: 100%;
+		background:#000;
+		height:50px; 
+	}
+	.nav ul{
+		position: relative;
+		width:1200px ;
+		margin:0 auto;
+	}
+	.nav ul li{
+		height: 50px;
+		list-style-type: none;
+		float: left;
+		line-height: 50px;
+		text-align: center;
+		position: relative;/*为了可以设置z-index*/
+		z-index: 9;/*为了让li在last之上*/
+	}
+	.nav ul li a{
+		text-decoration: none;
+		color: #fff;
+		font-family: "微软雅黑";
+		display: block;
+		padding:0 20px;
+		outline: none;
+	}
+	.nav ul li.allGoods{
+		background: #f42760;
+		width: 190px;
+		position: relative;
+	}
+	.nav ul li.allGoods font.iconfont{
+    	font-family:"iconfont" !important;
+    	color: #fff;
+    	margin-right: 10px;
+	}
+	.nav ul li.last{
+		background-color: #008000;
+		/*width: 90px;*/
+		position:absolute;
+		z-index: 3;
+		width: 72px;
+		left: 190px;
+	}
+	.fix{
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+
