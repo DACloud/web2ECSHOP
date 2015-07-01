@@ -6,7 +6,7 @@
     color: #ed145b;
     margin-right: 5px;
 	}
-	*{	
+	*{
 		margin: 0px;
 		padding: 0px;
 	}
@@ -98,12 +98,13 @@
 		 color:#ed145b;
 		 margin:0 10px;
 		  /*为了刷新上面设置margin-right:15px; 使用户中心和退出显示正常*/
-	}	
+	}
 /*网站导航样式*/
 	.nav{
 		width: 100%;
 		background:#000;
-		height:50px; 
+		height:50px;
+		z-index: 3333;
 	}
 	.nav ul{
 		position: relative;
@@ -150,4 +151,130 @@
 		top: 0;
 		left: 0;
 	}
+/*menue样式(这个菜单也属于二级菜单)*/
+	.nav ul li .menue{
+		width:190px;
+		height: 420px;
+		background-color: #000;
+		position: absolute;/*跟着滚动一定是绝对定位*/
+		top:50px;
+		left: 0;
+		color: white;
+	}
+	.nav ul li .menue ol li{
+		/*清除继承的样式*/
+		clear: both;/*清除浮动*/
+		height:68px;
+		/*border: 1px red solid;*/
+		width: 100%;
+		line-height: 30px;
+		/*这里重新定义行高的操作很重要！*/
+		text-align: left;
+	}
+	.nav ul li .menue ol li h3{
+		/*为了去除继承的样式 */
+		font-size: 14px;
+		font-weight: none;
+		color: #f43760;
+		text-indent: 15px;/*首行缩进*/
+	}
+	.nav ul li .menue ol li p{
+		text-indent: 15px;/*首行缩进*/
+		font-size: 12px;
+	}
+	.nav ul li .menue ol li p a{
+		display: inline;
+		padding: 0;
 
+	}
+	/*轮播图样式*/
+	#view{
+		width: 100%;
+		background:url("../images/timeGo.png");
+		height: 420px;
+	}
+	#view .main{
+		width: 1200px;
+		height: 420px;
+		background-color: green;
+		margin: 0 auto;
+	}
+	#view .main .flash{
+		width: 820px;
+		height: 420px;
+		background-color: yellow;
+		float: right;
+		position: relative;
+
+	}
+	#view .main .news{
+		width: 190px;
+		height: 420px;
+		background-color: blue;
+		float: right;
+	}
+	/*左右按钮样式开始*/
+	#view .main .flash a{
+		width: 71px;
+		height: 71px;
+		display: block;
+		/*a是行内元素没有宽高*/
+		position: absolute;
+		top: 180px;
+		z-index: 30;
+		display: none;
+	}
+	#view .main .flash a.prev{
+		left:-35px;
+		background:url("../images/but.png") -71px 0;
+		/*控制css精灵图片的位置*/
+	}
+	#view .main .flash a.next{
+		right: -35px;
+		background: url("../images/but.png") -71px -71px;
+	}
+	#view .main .flash a.prev:hover{
+		background: url("../images/but.png") 0 0;
+	}
+	#view .main .flash a.next:hover{
+		background: url("../images/but.png") 0 -71px;
+	}
+	/*左右按钮样式结束*/
+	#view .main .flash .scroll{
+		width: 820px;
+		height: 420px;
+		position: absolute;
+		overflow: hidden;
+	}
+	/*重要！！！*/
+	#view .main .flash img{
+		position: absolute;
+		left: 820px;
+		top:0;
+	}
+	#view .main .flash img.first{
+		left: 0;
+	}
+	#view .main .flash .control{
+		width: 150px;
+		height:20px;
+		background-color: rgba(0,0,0,0.5);
+		position: absolute;
+		left: 340px;
+		bottom: 10px;
+		border-radius: 20px;
+		/*并不是所有浏览器都兼容*/
+		text-align: center;
+		/*控制小圆点居中*/
+		/*line-height: 20px;*/
+	}
+	#view .main .flash .control span{
+		width: 10px;
+		height: 10px;
+		display: inline-block;
+		border-radius: 5px;
+		background-color: #666;
+	}
+ #view .main .flash .control .hover{
+	background-color: #f42760;
+}

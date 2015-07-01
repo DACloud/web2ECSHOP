@@ -19,6 +19,7 @@
 				// 因此要使用animate，前面还要加上stop().原因是什么，未查明
 			})
 //  吸顶盒特效
+// 问题：唯一的缺点是需要为了效果要在adv和head外面套上一层div
 	$(window).scroll(function(){
     var topHeight=$(".top").height();
 	var _scroll=$(document).scrollTop();
@@ -29,6 +30,54 @@
 	else{
 		$(".nav").removeClass("fix");
 	}
-	})
-	// 问题：唯一的缺点是需要为了效果要在adv和head外面套上一层div
-	
+  });
+
+// 轮播图特效
+	// 左右按钮移上显示效果
+	$("#view .main .flash").hover(function() {
+		$("#view .main .flash a").show()
+	}, function() {
+		$("#view .main .flash a").hide()
+	});
+	// 动态效果
+	var _index=0;
+	var _preindex=0;
+	// control控制代码
+	$("#view .main .flash .control span").click(function() {
+		_index=$(this).index();
+		scrollPlay();
+	});
+	// 左右切换控制效果
+	$("#view .main .flash .prev").click(function(){
+		_index--;
+		 if(_index<0){
+			_index=5;
+			_preindex=0
+		}
+		scrollPlay();
+	});
+	$("#view .main .flash .next").click(function(){
+		_index++;
+		document.title="_index ="+_index+"_preindex"+_preindex;
+		if(_index>5){
+			_index=0;
+			_preindex=5;
+			$("#view .main .flash .control span").eq(_index).addClass('hover').siblings().removeClass('hover');
+		 $("#view .main .flash .scroll img").eq(_index).css("left","820px").animate({left:"0"}, 300);
+		 $("#view .main .flash .scroll img").eq(_preindex).animate({left:"-820px"},300);
+		_preindex=_index;
+		}
+		else{scrollPlay();}
+	});
+	function scrollPlay(){
+		$("#view .main .flash .control span").eq(_index).addClass('hover').siblings().removeClass('hover');
+		if(_index>_preindex){
+		$("#view .main .flash .scroll img").eq(_preindex).animate({left:"-820px"}, 300);
+		$("#view .main .flash .scroll img").eq(_index).css("left","820").animate({left:"0"}, 300);
+		}
+		else if(_preindex>_index){
+			$("#view .main .flash .scroll img").eq(_preindex).animate({left:"820px"}, 300);
+			$("#view .main .flash .scroll img").eq(_index).css("left","-820px").animate({left:"0"}, 300);
+		}
+		_preindex=_index;
+	}
