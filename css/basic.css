@@ -228,10 +228,12 @@
 		left:-35px;
 		background:url("../images/but.png") -71px 0;
 		/*控制css精灵图片的位置*/
+		outline: none;
 	}
 	#view .main .flash a.next{
 		right: -35px;
 		background: url("../images/but.png") -71px -71px;
+		outline: none;
 	}
 	#view .main .flash a.prev:hover{
 		background: url("../images/but.png") 0 0;

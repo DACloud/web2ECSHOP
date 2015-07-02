@@ -44,40 +44,57 @@
 	var _preindex=0;
 	// control控制代码
 	$("#view .main .flash .control span").click(function() {
+		clearInterval(clearTime)
 		_index=$(this).index();
 		scrollPlay();
 	});
 	// 左右切换控制效果
+		// 向右切换
 	$("#view .main .flash .prev").click(function(){
+		clearInterval(clearTime)
 		_index--;
-		 if(_index<0){
-			_index=5;
-			_preindex=0
-		}
+		scrollPlay()
+	});
+		// 向右切换
+	$("#view .main .flash .next").click(function(){
+		clearInterval(clearTime)
+		_index++;
 		scrollPlay();
 	});
-	$("#view .main .flash .next").click(function(){
-		_index++;
-		document.title="_index ="+_index+"_preindex"+_preindex;
-		if(_index>5){
-			_index=0;
-			_preindex=5;
-			$("#view .main .flash .control span").eq(_index).addClass('hover').siblings().removeClass('hover');
-		 $("#view .main .flash .scroll img").eq(_index).css("left","820px").animate({left:"0"}, 300);
-		 $("#view .main .flash .scroll img").eq(_preindex).animate({left:"-820px"},300);
-		_preindex=_index;
-		}
-		else{scrollPlay();}
-	});
+	autoPlay();
+	// $("#view .flash .next,#view .flash .prev,#view .flash .control span").mouseout(function() {
+	// 	autoPlay();
+	// });
+// 思路是先按最笨的办法做，然后将函数整合成一个
 	function scrollPlay(){
 		$("#view .main .flash .control span").eq(_index).addClass('hover').siblings().removeClass('hover');
-		if(_index>_preindex){
+		if (_index>5) {
+			_index=0;
+			_preindex=5;
+		$("#view .main .flash .control span").eq(_index).addClass('hover').siblings().removeClass('hover');
+		$("#view .main .flash .scroll img").eq(_index).css("left","820px").animate({left:"0"}, 300);
+		$("#view .main .flash .scroll img").eq(_preindex).animate({left:"-820px"},300);
+	}
+		else if (_index<0) {
+			_index=5;
+			_preindex=0;
+			$("#view .main .flash .control span").eq(_index).addClass('hover').siblings().removeClass('hover');
+			$("#view .main .flash .scroll img").eq(_index).css("left","-820px").animate({left:"0"}, 300);
+			$("#view .main .flash .scroll img").eq(_preindex).animate({left:"820px"},300);
+		}
+		else if(_index>_preindex){
 		$("#view .main .flash .scroll img").eq(_preindex).animate({left:"-820px"}, 300);
-		$("#view .main .flash .scroll img").eq(_index).css("left","820").animate({left:"0"}, 300);
+		$("#view .main .flash .scroll img").eq(_index).css("left","820px").animate({left:"0"}, 300);
 		}
 		else if(_preindex>_index){
 			$("#view .main .flash .scroll img").eq(_preindex).animate({left:"820px"}, 300);
 			$("#view .main .flash .scroll img").eq(_index).css("left","-820px").animate({left:"0"}, 300);
 		}
 		_preindex=_index;
+	}
+	function autoPlay(){
+		clearTime = setInterval(function(){
+			_index++;
+			scrollPlay();
+		},5000);
 	}
