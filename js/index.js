@@ -44,28 +44,27 @@
 	var _preindex=0;
 	// control控制代码
 	$("#view .main .flash .control span").click(function() {
-		clearInterval(clearTime)
+		// clearInterval(clearTime);
 		_index=$(this).index();
 		scrollPlay();
 	});
 	// 左右切换控制效果
 		// 向右切换
 	$("#view .main .flash .prev").click(function(){
-		clearInterval(clearTime)
+		// clearInterval(clearTime);
 		_index--;
-		scrollPlay()
+		scrollPlay();
 	});
 		// 向右切换
 	$("#view .main .flash .next").click(function(){
-		clearInterval(clearTime)
+		// clearInterval(clearTime);
 		_index++;
 		scrollPlay();
 	});
-	autoPlay();
-	// $("#view .flash .next,#view .flash .prev,#view .flash .control span").mouseout(function() {
+	// $("#view .flash .next,#view .flash .prev,#view .flash .control").mouseout(function() {
 	// 	autoPlay();
 	// });
-// 思路是先按最笨的办法做，然后将函数整合成一个
+// 思路:先按最笨的办法做，然后将函数整合成一个
 	function scrollPlay(){
 		$("#view .main .flash .control span").eq(_index).addClass('hover').siblings().removeClass('hover');
 		if (_index>5) {
@@ -89,12 +88,12 @@
 		else if(_preindex>_index){
 			$("#view .main .flash .scroll img").eq(_preindex).animate({left:"820px"}, 300);
 			$("#view .main .flash .scroll img").eq(_index).css("left","-820px").animate({left:"0"}, 300);
-		}
+		};
 		_preindex=_index;
-	}
-	function autoPlay(){
-		clearTime = setInterval(function(){
-			_index++;
-			scrollPlay();
-		},5000);
-	}
+	};
+	// function autoPlay(){
+	// 	clearTime = setInterval(function(){
+	// 		_index++;
+	// 		scrollPlay();
+	// 	},5000);
+	// };
