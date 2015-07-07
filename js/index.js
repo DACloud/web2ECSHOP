@@ -8,7 +8,7 @@
  		// 	$("#head .search input.sea").val()="";
  		// })
 //  导航栏滑动特效
-		$(".nav ul li").not(".allGoods,.last").hover(function(){
+		$(".nav ul li").not(".allGoods,.allGoods .menue,.last").hover(function(){
 			var _left=$(this).position().left;
 			var _width=$(this).width();
 			$(".nav ul li.last").css("width",_width).stop().animate({left:_left},300);
@@ -23,12 +23,14 @@
 	$(window).scroll(function(){
     var topHeight=$(".top").height();
 	var _scroll=$(document).scrollTop();
-	document.title=_scroll+"--"+topHeight;
+	// document.title=_scroll+"--"+topHeight;
 	if(_scroll>topHeight){
 		$(".nav").addClass("fix");
+		$(".nav .allGoods .menue").hide();
 	}
 	else{
 		$(".nav").removeClass("fix");
+		$(".nav .allGoods .menue").show();
 	}
   });
 
