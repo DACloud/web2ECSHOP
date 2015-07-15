@@ -7,11 +7,12 @@
     margin-right: 5px;
 	}
 	/*提高性能，尽量不用通配符*号键*/
-	html,body,ul,li,a,h3,ol{
+	html,body,ul,li,a,h3,h4,ol{
 		margin: 0px;
 		padding: 0px;
 		text-decoration: none;
 		list-style-type: none;
+		font-family: "微软雅黑";
 	}
 	/*头部样式*/
 	.picAdv{
@@ -331,4 +332,73 @@
 }
 #view .main .news .newsCon ul li a font{
 	color: #f42760;
+}
+/*限时抢购部分*/
+.limit{
+	margin: 0 auto;
+	width: 1200px;
+	height: 500px;
+}
+.limit h3{
+	border-bottom:1px #f7f7f7 solid;
+	font-size: 20px;
+	color: #f42760;
+	margin: 28px 0 25px 0;
+	/*font-family: "微软雅黑"*/
+}
+.limit .container{
+	width: 1300px;
+	height: 380px;
+	position: relative;
+}
+.limit li{
+	width: 290px;
+	height: 380px;
+	display: inline-block;
+	position: relative;
+	margin-right: 8px;
+}
+/*.limit .container img{
+	border:1px solid blue;
+}
+*/.limit .goodName{
+	font-size: 14px;
+	text-indent: 10px;
+	/*border:1px solid red;*/
+	padding: 5px 0;
+}
+.limit .price{
+	/*border:1px solid red;*/
+	padding: 5px 0;
+	color: #f42760;
+	text-indent: 10px;
+	font-size: 18px;
+	position: relative;
+	font-weight: normal;
+}
+.limit .price del{
+	display: inline-block;
+	color: #afafaf;
+	font-size: 14px;
+	font-weight: normal;
+}
+.limit .price a{
+	display:block;
+	position: absolute;
+	right: 10px;
+	top: 0;
+	font-size:14px;
+	color:white;
+	background-color:#f42760;
+	width: 95px;
+	height: 100%;
+	line-height: 33px;
+	text-align: center;
+	text-indent: 0;
+	border-radius: 5px;
+	font-weight: normal;
+
+}
+.limit .time{
+	/*border:1px solid red;*/
 }
