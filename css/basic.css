@@ -6,9 +6,13 @@
     color: #ed145b;
     margin-right: 5px;
 	}
-	*{	
+	/*提高性能，尽量不用通配符*号键*/
+	html,body,ul,li,a,h3,h4,ol{
 		margin: 0px;
 		padding: 0px;
+		text-decoration: none;
+		list-style-type: none;
+		font-family: "微软雅黑";
 	}
 	/*头部样式*/
 	.picAdv{
@@ -98,12 +102,13 @@
 		 color:#ed145b;
 		 margin:0 10px;
 		  /*为了刷新上面设置margin-right:15px; 使用户中心和退出显示正常*/
-	}	
+	}
 /*网站导航样式*/
 	.nav{
 		width: 100%;
 		background:#000;
-		height:50px; 
+		height:50px;
+		z-index: 3333;
 	}
 	.nav ul{
 		position: relative;
@@ -150,4 +155,385 @@
 		top: 0;
 		left: 0;
 	}
+/*menue样式(这个菜单也属于二级菜单)*/
+	.nav ul li .menue{
+		width:190px;
+		height: 420px;
+		background-color: #000;
+		position: absolute;/*跟着滚动一定是绝对定位*/
+		top:50px;
+		left: 0;
+		color: white;
+	}
+	.nav ul li .menue ol li{
+		/*清除继承的样式*/
+		clear: both;/*清除浮动*/
+		height:68px;
+		/*border: 1px red solid;*/
+		width: 100%;
+		line-height: 30px;
+		/*这里重新定义行高的操作很重要！*/
+		text-align: left;
+	}
+	.nav ul li .menue ol li h3{
+		/*为了去除继承的样式 */
+		font-size: 14px;
+		font-weight: none;
+		color: #f43760;
+		text-indent: 15px;/*首行缩进*/
+	}
+	.nav ul li .menue ol li p{
+		text-indent: 15px;/*首行缩进*/
+		font-size: 12px;
+	}
+	.nav ul li .menue ol li p a{
+		display: inline;
+		padding: 0;
 
+	}
+	/*轮播图样式*/
+	#view{
+		width: 100%;
+		background:url("../images/timeGo.png");
+		height: 420px;
+	}
+	#view .main{
+		width: 1200px;
+		height: 420px;
+		margin: 0 auto;
+	}
+	#view .main .flash{
+		width: 820px;
+		height: 420px;
+		background-color: yellow;
+		float: right;
+		position: relative;
+
+	}
+	/*左右按钮样式开始*/
+	#view .main .flash a{
+		width: 71px;
+		height: 71px;
+		display: block;
+		/*a是行内元素没有宽高*/
+		position: absolute;
+		top: 180px;
+		z-index: 30;
+		display: none;
+	}
+	#view .main .flash a.prev{
+		left:-35px;
+		background:url("../images/but.png") -71px 0;
+		/*控制css精灵图片的位置*/
+		outline: none;
+	}
+	#view .main .flash a.next{
+		right: -35px;
+		background: url("../images/but.png") -71px -71px;
+		outline: none;
+	}
+	#view .main .flash a.prev:hover{
+		background: url("../images/but.png") 0 0;
+	}
+	#view .main .flash a.next:hover{
+		background: url("../images/but.png") 0 -71px;
+	}
+	/*左右按钮样式结束*/
+	#view .main .flash .scroll{
+		width: 820px;
+		height: 420px;
+		position: absolute;
+		overflow: hidden;
+	}
+	/*重要！！！*/
+	#view .main .flash img{
+		position: absolute;
+		left: 820px;
+		top:0;
+	}
+	#view .main .flash img.first{
+		left: 0;
+	}
+	#view .main .flash .control{
+		width: 150px;
+		height:20px;
+		background-color: rgba(0,0,0,0.5);
+		position: absolute;
+		left: 340px;
+		bottom: 10px;
+		border-radius: 20px;
+		/*并不是所有浏览器都兼容*/
+		text-align: center;
+		/*控制小圆点居中*/
+		/*line-height: 20px;*/
+	}
+	#view .main .flash .control span{
+		width: 10px;
+		height: 10px;
+		display: inline-block;
+		border-radius: 5px;
+		background-color: #666;
+	}
+ #view .main .flash .control .hover{
+	background-color: #f42760;
+}
+/*新闻样式开始*/
+#view .main .news{
+	width: 190px;
+	height: 420px;
+	float: right;
+	/*以下是保证半透明效果能兼容所有浏览器的代码*/
+	position: relative;
+}
+#view .main .news .newsOpacity{
+	width: 190px;
+	height: 420px;
+	background-color: #0a0202;
+	filter:alpha(opacity=60);
+	-moz-opaacity:0.6;
+	-khtml-opacity:0.6;
+	opacity: 0.6;
+}
+#view .main .news .newsCon{
+	width: 190px;
+	height: 420px;
+	position: absolute;
+	top:0;
+	left: 0;
+}
+#view .main .news .newsCon .newsCon1{
+	height:210px;
+}
+#view .main .news .newsCon .newsCon2{
+	height:210px;
+}
+#view .main .news .newsCon h3{
+	display: block;
+	height: 43px;
+	background-color: #30060c;
+	color: white;
+	text-indent: 18px;
+	line-height: 43px;
+	font-weight: normal;
+}
+#view .main .news .newsCon ul{
+	padding:5px 0 0 18px;
+	list-style-type: none;
+}
+#view .main .news .newsCon ul li a{
+	text-decoration: none;
+	color:white;
+	font-size: 12px;
+	outline: none;
+	line-height: 32px;
+}
+#view .main .news .newsCon ul li a:hover{
+	color: #f42760;
+}
+#view .main .news .newsCon ul li a font{
+	color: #f42760;
+}
+/*限时抢购部分*/
+.limit{
+	margin: 0 auto;
+	width: 1200px;
+	height: 500px;
+}
+.limit h3{
+	border-bottom:1px #f7f7f7 solid;
+	font-size: 20px;
+	color: #f42760;
+	margin: 28px 0 25px 0;
+	/*font-family: "微软雅黑"*/
+}
+.limit .container{
+	width: 1300px;
+	height: 380px;
+	position: relative;
+}
+.limit li{
+	width: 290px;
+	height: 380px;
+	display: inline-block;
+	position: relative;
+	margin-right: 8px;
+}
+/*.limit .container img{
+	border:1px solid blue;
+}
+*/.limit .goodName{
+	font-size: 14px;
+	text-indent: 10px;
+	/*border:1px solid red;*/
+	padding: 5px 0;
+}
+.limit .price{
+	/*border:1px solid red;*/
+	padding: 5px 0;
+	color: #f42760;
+	text-indent: 10px;
+	font-size: 18px;
+	position: relative;
+	font-weight: normal;
+}
+.limit .price del{
+	display: inline-block;
+	color: #afafaf;
+	font-size: 14px;
+	font-weight: normal;
+}
+.limit .price a{
+	display:block;
+	position: absolute;
+	right: 10px;
+	top: 0;
+	font-size:14px;
+	color:white;
+	background-color:#f42760;
+	width: 95px;
+	height: 100%;
+	line-height: 33px;
+	text-align: center;
+	text-indent: 0;
+	border-radius: 5px;
+	font-weight: normal;
+
+}
+.limit .time{
+	/*border:1px solid red;*/
+}
+
+/*新鲜水果效果开始*/
+.freshFruit{
+	margin:0 auto;
+
+	width:1200px;
+	height:700px;
+
+	/*border:1px solid black;*/
+}
+.freshFruit ul{
+	border-bottom:1px solid #dfdfdf;
+
+}
+.freshFruit ul:after{
+		content:".";
+		display:block;
+		height:0;
+		visibility:hidden;
+		clear:both;
+}
+.freshFruit h3{
+	margin:0;
+	padding:0;
+	width:360px;
+
+	font:18px;
+	color:#333333;
+	float:left;
+
+	display:inline;
+}
+.freshFruit span{
+	font-size:15px;
+	font-weight:normal;
+
+	line-height: 15px;
+}
+.freshFruit ul.list li{
+	width:80px;
+	height:30px;
+	margin:0;
+
+	position: relative;
+
+	color:#333333;
+	font-size:14px;
+	line-height: 28px;
+	text-align:center;
+
+	float:right;
+}
+.freshFruit ul.list li.hover span{
+	width:82px;
+	height: 30px;
+	display: block;
+	border: 1px solid #dfdfdf;
+	border-bottom: 1px solid #fff;
+
+	position: absolute;
+	top:-1px;
+	left: -1px;
+	z-index:222;
+
+	color:#333333;
+	font-size:14px;
+	line-height: 28px;
+	text-align:center;
+}
+.freshFruit .fruitShow:after{
+	content: ".";
+	clear:both;
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+	/*show1（左侧）*/
+.freshFruit .fruitShow .Show1{
+	width:486px;
+	height: 670px;
+
+	float: left;
+
+	/*background-color: red;*/
+}
+.freshFruit .fruitShow .Show1 .slideBar{
+	width:445px;
+	height: 160px;
+}
+.freshFruit .fruitShow .Show1 .slideBar li.slider{
+	float: left;
+}
+.freshFruit .fruitShow .Show1 .slideBar li.slider img{
+	display: none;
+	cursor: pointer;
+
+	float: left;
+}
+.freshFruit .fruitShow .Show1 .slideBar li.slider img.hover{
+	display:block;
+}
+.freshFruit .fruitShow .Show1 .slideBar .slider span.head{
+	width:25px;
+	height:110px;
+	display: inline-block;
+	border:1px solid #dfdfdf;
+	padding-top: 50px;
+
+	text-align: center;
+
+
+}
+.freshFruit .fruitShow .Show2{
+	width: 710px;
+	height: 670px;
+
+	float: right;
+}
+.freshFruit .fruitShow .Show2 .Show2_sub{
+	width: 710px;
+	height: 670px;
+	border: 1px solid blue;
+
+	display: none;
+}
+.freshFruit .fruitShow .Show2 .Show2_sub.hover{
+	display: block;
+}
+.freshFruit .fruitShow .Show2 .Show2_sub ul li{
+	width: 236px;
+	height: 350px;
+	border:1px solid black;
+
+	float: left;
+}
