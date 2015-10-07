@@ -99,3 +99,38 @@
 	// 		scrollPlay();
 	// 	},5000);
 	// };
+
+//倒计时特效
+	var endDate = new Date(2015,8,30,0,0,0);
+	function countDown(endDate){
+		 var nowDate = new Date();
+		 var rMsec = (endDate.getTime()-nowDate.getTime())/1000;
+		 var rDays = Math.floor(rMsec/86400);
+		 rMsec%=86400;
+		 var rHours = Math.floor(rMsec/2400);
+		 rMsec%=2400;
+		 var rMin = Math.floor(rMsec/60);
+		 rMsec%=60;
+		 var rSec = Math.floor(rMsec);
+
+
+		// 修改DOM
+		$(".limit ul li .time .days").html(rDays + "天");
+		$(".limit ul li .time .hour").html(rHours + "小时");
+		$(".limit ul li .time .min").html(rMin + "分钟");
+		$(".limit ul li .time .sec").html(rSec + "秒");
+	};
+	setInterval("countDown(endDate)",1000);
+	// 存在时间无法刷新的问题
+
+//新鲜水果选项卡效果开始
+	$(".freshFruit ul.list li").mouseover(function() {
+		 $(this).addClass('hover').siblings("li").removeClass('hover');
+		 var index = $(this).index();
+	   $(".freshFruit .fruitShow .Show2 .Show2_sub").eq(index-1).show().siblings().hide();
+	});
+//新鲜水果手风琴效果开始
+	$(".freshFruit .fruitShow .Show1 .slideBar li.slider").mouseover(function(){
+		$(this).find("img").show();
+		$(this).siblings().find("img").hide();
+	});

@@ -402,3 +402,138 @@
 .limit .time{
 	/*border:1px solid red;*/
 }
+
+/*新鲜水果效果开始*/
+.freshFruit{
+	margin:0 auto;
+
+	width:1200px;
+	height:700px;
+
+	/*border:1px solid black;*/
+}
+.freshFruit ul{
+	border-bottom:1px solid #dfdfdf;
+
+}
+.freshFruit ul:after{
+		content:".";
+		display:block;
+		height:0;
+		visibility:hidden;
+		clear:both;
+}
+.freshFruit h3{
+	margin:0;
+	padding:0;
+	width:360px;
+
+	font:18px;
+	color:#333333;
+	float:left;
+
+	display:inline;
+}
+.freshFruit span{
+	font-size:15px;
+	font-weight:normal;
+
+	line-height: 15px;
+}
+.freshFruit ul.list li{
+	width:80px;
+	height:30px;
+	margin:0;
+
+	position: relative;
+
+	color:#333333;
+	font-size:14px;
+	line-height: 28px;
+	text-align:center;
+
+	float:right;
+}
+.freshFruit ul.list li.hover span{
+	width:82px;
+	height: 30px;
+	display: block;
+	border: 1px solid #dfdfdf;
+	border-bottom: 1px solid #fff;
+
+	position: absolute;
+	top:-1px;
+	left: -1px;
+	z-index:222;
+
+	color:#333333;
+	font-size:14px;
+	line-height: 28px;
+	text-align:center;
+}
+.freshFruit .fruitShow:after{
+	content: ".";
+	clear:both;
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+	/*show1（左侧）*/
+.freshFruit .fruitShow .Show1{
+	width:486px;
+	height: 670px;
+
+	float: left;
+
+	/*background-color: red;*/
+}
+.freshFruit .fruitShow .Show1 .slideBar{
+	width:445px;
+	height: 160px;
+}
+.freshFruit .fruitShow .Show1 .slideBar li.slider{
+	float: left;
+}
+.freshFruit .fruitShow .Show1 .slideBar li.slider img{
+	display: none;
+	cursor: pointer;
+
+	float: left;
+}
+.freshFruit .fruitShow .Show1 .slideBar li.slider img.hover{
+	display:block;
+}
+.freshFruit .fruitShow .Show1 .slideBar .slider span.head{
+	width:25px;
+	height:110px;
+	display: inline-block;
+	border:1px solid #dfdfdf;
+	padding-top: 50px;
+
+	text-align: center;
+
+
+}
+.freshFruit .fruitShow .Show2{
+	width: 710px;
+	height: 670px;
+
+	float: right;
+}
+.freshFruit .fruitShow .Show2 .Show2_sub{
+	width: 710px;
+	height: 670px;
+	border: 1px solid blue;
+
+	display: none;
+}
+.freshFruit .fruitShow .Show2 .Show2_sub.hover{
+	display: block;
+}
+.freshFruit .fruitShow .Show2 .Show2_sub ul li{
+	width: 236px;
+	height: 350px;
+	border:1px solid black;
+
+	float: left;
+}
